@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ApiBase</name>
+    </assembly>
+    <members>
+        <member name="T:Jabil.Data.cCnx">
+            <summary>Provides methods to interact with SQL Sever databases.</summary>
+        </member>
+        <member name="F:Jabil.Data.cCnx.estParametres.vName">
+            <summary>
+            Recibe el nombre del parametro del Store Procedure
+            <example><para>Ejemplo: "@Nombre"</para></example>
+            </summary>
+        </member>
+        <member name="F:Jabil.Data.cCnx.estParametres.vValue">
+            <summary>
+            Recibe el valor del parametro
+            <example><para>Ejemplo: "Alfredo Rodriguez"</para></example>
+            </summary>
+        </member>
+        <member name="P:Jabil.Data.cCnx.ConnectionString">
+            <summary>Gets the connection value from ConfigurationManager.ConnectionStrings</summary>
+        </member>
+        <member name="P:Jabil.Data.cCnx.SetSQLTimeout">
+            <summary>Sets the timeout of the SQL methods.</summary>
+        </member>
+        <member name="P:Jabil.Data.cCnx.DataSource">
+            <summary>Gets the name or network address of the instance fo SQL Server to connect to.</summary>
+        </member>
+        <member name="P:Jabil.Data.cCnx.InitialCatalog">
+            <summary>Gets the name of the database associed with the connection.</summary>
+        </member>
+        <member name="P:Jabil.Data.cCnx.PersistSecurityInfo">
+            <summary>Gets a Boolean value that indicates if security-sensitive information, such as the password, is not returned as part of the connection if the connection is open or has ever been in an open state.</summary>
+        </member>
+        <member name="P:Jabil.Data.cCnx.UserID">
+            <summary>Sets the user ID to be used when connecting to SQL Server.</summary>
+        </member>
+        <member name="P:Jabil.Data.cCnx.Password">
+            <summary>Gets the password for the SQL Server account.</summary>
+        </member>
+        <member name="M:Jabil.Data.cCnx.#ctor">
+            <summary>Provides methods to interactuate with SQL Sever.</summary>
+        </member>
+        <member name="M:Jabil.Data.cCnx.#ctor(System.String)">
+            <summary>Provides methods to interactuate with SQL Sever.</summary>
+            <param name="ConnectionString">Sets the connection value from ConfigurationManager.ConnectionStrings key specified.</param>
+        </member>
+        <member name="M:Jabil.Data.cCnx.BulkCopy(System.String,System.Data.DataTable,System.String@)">
+            <summary>This method copies all rows in the supplied System.Data.DataTable in the specified destination table on the server.</summary>
+            <param name="DestinationTableName">Name of the destination table on the server.</param>
+            <param name="DataTableToUpload">System.Data.DataTable to write in the destination table.</param>
+            <param name="ExceptionMessage">Gets an exception message when the method fails.</param>
+        </member>
+        <member name="M:Jabil.Data.cCnx.GetDataTable(System.String,System.String@)">
+            <summary>This method execute a SQL command and returns a DataTable as result.</summary>
+            <param name="cmdText">The text of the query.</param>
+            <param name="ExceptionMessage">Gets an exception message when the method fails.</param>
+            <returns>System.Data.DataTable</returns>
+        </member>
+        <member name="M:Jabil.Data.cCnx.GetDataSet(System.String,System.String@)">
+            <summary>This method execute a SQL command and returns a DataTable collection as result.</summary>
+            <param name="cmdText">The text of the query.</param>
+            <param name="ExceptionMessage">Gets an exception message when the method fails.</param>
+            <returns>System.Data.DataSet</returns>
+        </member>
+        <member name="M:Jabil.Data.cCnx.Exec(System.String,System.String@)">
+            <summary>This method exectute a SQL command but it doesn't returns any result.</summary>
+            <param name="cmdText">The text of the query.</param>
+            <param name="ExceptionMessage">Gets an exception message when the method fails.</param>
+        </member>
+        <member name="M:Jabil.Data.cCnx.Exec(System.String,System.Object[])">
+            <summary>This method execute a SQL stored procedure.</summary>
+            <param name="object_id">Name of the stored procedure name.</param>
+            <param name="args">An object array that contains the parameters of the stored procedure.</param>
+        </member>
+        <member name="M:Jabil.Data.cCnx.ExecDataTable(System.String,System.Object[])">
+            <summary>This method execute a SQL stored procedure and provides a System.DataTable.</summary>
+            <param name="object_id">Name of the stored procedure name.</param>
+            <param name="args">An object array that contains the parameters of the stored procedure.</param>
+            <returns>System.Data.DataTable</returns>
+        </member>
+        <member name="M:Jabil.Data.cCnx.ExecDataSet(System.String,System.Object[])">
+            <summary>This method execute a SQL stored procedure and provides a System.DataSet.</summary>
+            <param name="object_id">Name of the stored procedure name.</param>
+            <param name="args">An object array that contains the parameters of the stored procedure.</param>
+            <returns>System.Data.DataSet</returns>
+        </member>
+        <member name="M:Jabil.Data.cCnx.fnStoredProcedureCommandBuilder(System.String@,System.String,System.Object[])">
+            <summary></summary>
+            <param name="ExceptionMessage">Gets an exception message when the method fails.</param>
+            <param name="object_id">Name of the stored procedure name.</param>
+            <param name="args">An object array that contains the parameters of the stored procedure.</param>
+            <returns>System.String</returns>
+        </member>
+        <member name="M:Jabil.Data.cCnx.SaveFile(System.String,System.Byte[],System.String@)">
+            <summary>This method creates a File and saves it in the specified path.</summary>
+            <param name="FileName">Represents the complete path with the file name and extension. Example: "C:\Files\File.csv"</param>
+            <param name="FileData">Represents the file content encoded in a bytes array. </param>
+            <param name="ExceptionMessage">Gets an exception message when the method fails.</param>
+        </member>
+        <member name="M:Jabil.Data.cCnx.DeleteFile(System.String,System.String@)">
+            <summary>This method deletes a File in the specified path.</summary>
+            <param name="FileName">Represents the complete path with the file name and extension. Example: "C:\Files\File.csv"</param>
+            <param name="ExceptionMessage">Gets an exception message when the method fails.</param>
+        </member>
+        <member name="M:Jabil.Data.cCnx.ConvertJsonToDataSet(System.String,System.String@)">
+            <summary>This method converts a Json string to System.Data.DataSet.</summary>
+            <param name="Json">The Json string.</param>
+            <param name="ExceptionMessage">Gets an exception message when the method fails.</param>
+            <returns>System.Data.DataSet</returns>
+        </member>
+        <member name="M:Jabil.Data.cCnx.mQuery(System.String,System.Boolean,System.String@)">
+            <summary>
+            Metodo mQuery :medodo que realiza consultas a la Base de Datos
+            consultado store procedures sin enviar un parametro solo ejecutando,
+            utilizando para ello una bandera variable booleana true.
+            </summary>
+            <param name="StoreProcedureName"></param>
+            <param name="isProcedure"></param>
+            <param name="pError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jabil.Data.cCnx.mQuery(System.String,System.Boolean,System.Boolean,System.String@)">
+            <summary>
+            Metodo mQuery :medodo que realiza consultas a la Base de Datos
+            consultado store procedures sin enviar un parametro solo ejecutando,
+            utilizando para ello una bandera variable booleana true.
+            </summary>
+            <param name="StoreProcedureName"></param>
+            <param name="isProcedure"></param>
+            <param name="pError"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jabil.Data.cCnx.mQuery(System.String,System.String@)">
+            <summary>
+            Metodo para realizar consultas a la base de datos 
+            a la que corresponde el objeto de conección
+            </summary>
+            <param name="Query">Parametro String con el query que quiere ejecutar</param>
+            <param name="pError">Parametro que retorna un mensaje de error cuando no puede ejecutar el query</param>
+            <returns>Retorna un DataTable con el resultado de la consulta</returns>
+        </member>
+        <member name="M:Jabil.Data.cCnx.mQuery(System.String,Jabil.Data.cCnx.estParametres[],System.String@)">
+            <summary>
+            Sobre carga del metodo consultar que permite ejecutar 
+            Procedimientos almacenados recibiendo como parametro
+            un arreglo de parametros (Tipo de dato propio de la clase).
+            </summary>
+            <param name="StoreProcedureName">String del procedimiento almacenado que desea ejecutar</param>
+            /// <param name="pError">Parametro que retorna un mensaje de error cuando no puede ejecutar el query</param>
+            <param name="Parametres">
+                Arreglo estructuras propio de la clase cCnx.
+                <example>
+                <para>----------------------------------------------------------------</para>
+                <para>--------------------------EJEMPLO---------------------------</para>
+                <para>----------------------------------------------------------------</para>
+                <para>int i=0;</para>
+                <para>DataTable oDt = new DataTable();</para>
+                <para>cCnx oCnx = new cCnx("172.24.76.202","Tivo", "usersql", "user");</para>
+                <para>oCnx.arrParametres[i].vName = "";</para>
+                <para>oCnx.arrParametres[i].vValue = "";</para>
+                <para>oCnx.arrParametres[i].vName = "@Prueba";</para>
+                <para>oCnx.arrParametres[i].vValue = "Functional";</para>
+                <para>oDt = oCnx.mConsultar("sp_returnall2", oCnx.arrParametres);</para>
+                <para>foreach (DataRow oRow in oDt.Rows)</para>
+                <para>{</para>
+                <para>  string vTexto = oRow["rutina"].ToString();</para>
+                <para>}</para>
+                </example>
+            </param>
+            
+            <returns>Retorna un DataTable con el resultado del procedimiento almacenado ejecutado</returns>
+        </member>
+        <member name="M:Jabil.Data.cCnx.mUpdate(System.String,System.String@)">
+            <summary>
+            Metodo Actualizar permite insertar nuevos registros en la base de datos, actualizarlos o borrarlos
+            </summary>
+            <param name="Query">
+            Recibe un Query SQL que ejecutara en la base SQL 
+            <para>Puede ser un Insert, Delete o Update</para>
+            <example>
+            <para>Ejemplo_1: insert into TablaPruebas(id,Nombre,aPaterno) values(1,'Alfredo','Rodriguez')</para>
+            <para>Ejemplo_2: update TablaPruebas set aMaterno = 'Rodriguez' where id = 1</para>
+            <para>Ejemplo_3: delete TablaPruebas where id = 1</para>
+            </example>
+            </param>
+            <param name="ShowError">
+            <para>Recibe un valor booleano que determina si la clase debe mostrar un error en un message box o lo omite</para>
+            </param>
+            <param name="pError">Parametro que retorna un mensaje de error cuando no puede ejecutar el query</param>
+            <returns>Retorna un valor entero con la cantidad de filas afectadas</returns>
+        </member>
+        <member name="M:Jabil.Data.cCnx.mScaleQuery(System.String,System.String@)">
+            <summary>
+            Metodo Consulta escalar retorna el campo de la primer columna y primer fila.
+            </summary>
+            <param name="Query">Recibe un Query de SQL que ejecutara en la base de datos
+                <example>
+                    <para>Ejemplo_1: select count(*) from tabla pruebas</para>
+                    <para>Ejemplo_2: select id from tabla pruebas</para>
+                    <remarks>
+                        <para>Cuando la consulta regresa mas de una columna y/o una fila, se toma la primera y las demas se omiten</para>
+                        <para>El valor de retorno debe de ser un entero, con cadenas de caracteres no funcniona</para>
+                    </remarks>
+                </example>
+            </param>
+            /// <param name="pError">Parametro que retorna un mensaje de error cuando no puede ejecutar el query</param>
+            <returns>Retorna un valor entero con lo obtenido en la primer columna y primer fila del resultado del <paramref name="Query"/>.</returns>
+        </member>
+        <member name="T:Utilities.MultiUtilities">
+            <summary>
+            Library of multi utilities methods to be used in the application like encryption, decryption, etc.
+            </summary>
+        </member>
+        <member name="T:Controllers.UtilitesController">
+            <summary>
+            Controller for the utilities methods
+            </summary>
+        </member>
+        <member name="M:Controllers.UtilitesController.Encrypt(Models.EncryptStr)">
+            <summary>
+            Encrypts a string
+            </summary>
+            <param name="encryptStr"> Structure containing the string to be encrypted and an optional key </param>
+            <returns> The same structure that is sent but with a property call result that contains the encryption result</returns>
+        </member>
+        <member name="M:Controllers.UtilitesController.Decrypt(Models.EncryptStr)">
+            <summary>
+            Decrypts a string
+            </summary>
+            <param name="encryptStr"> Structure containing the string to be decrypted and an optional key </param>
+            <returns> The same structure that is sent but with a property call result that contains the decryption result</returns>
+        </member>
+        <member name="M:Controllers.UtilitesController.Test">
+            <summary>
+            Test method
+            </summary>
+            <returns> Test </returns>
+        </member>
+        <member name="T:Models.EncryptStr">
+            <summary>
+            structure for encrypting a string
+            </summary>
+        </member>
+        <member name="P:Models.EncryptStr.str">
+            <summary>
+            The string to encrypt or decrypt
+            </summary>
+        </member>
+        <member name="P:Models.EncryptStr.key">
+            <summary>
+            The key to use for encryption or decryption
+            </summary>
+        </member>
+        <member name="P:Models.EncryptStr.result">
+            <summary>
+            The result of the encryption or decryption
+            </summary>
+        </member>
+    </members>
+</doc>
